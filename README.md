@@ -121,3 +121,21 @@ Cartfy تمكّن صاحب المنصة (Admin) من إنشاء وإدارة ب�
 - فتح الرابط المباشر يعرض صفحة بروفايل احترافية.
 - زر vCard يُنزّل ملف اتصال صحيح.
 - custom domain (إن وُجد) يعرض نفس البروفايل بشكل صحيح.
+
+## 11) قاعدة البيانات (تمت إضافتها)
+- تمت إضافة مخطط PostgreSQL فعلي في `db/schema.sql` يشمل الجداول التالية:
+  - `users`
+  - `profiles`
+  - `social_links`
+  - `domains`
+- تمت إضافة `docker-compose.yml` لتشغيل PostgreSQL محليًا مع تحميل المخطط تلقائيًا.
+
+### تشغيل قاعدة البيانات محليًا
+```bash
+docker compose up -d
+```
+
+### التحقق السريع
+```bash
+docker compose exec postgres psql -U cartfy -d cartfy -c "\dt"
+```
